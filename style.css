@@ -1,0 +1,138 @@
+:root {
+  --white: hsl(0, 0%, 100%);
+  --light-pink: hsl(275, 100%, 97%);
+  --grayish-purple: hsl(292, 16%, 49%);
+  --light-purple: hsl(281, 83%, 54%);
+  --dark-purple: hsl(292, 42%, 14%);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  min-height: 100vh;
+  box-sizing: border-box;
+  font-family: "Work Sans", sans-serif;
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--light-pink);
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 45vh;
+  background-image: url(assets/images/background-pattern-desktop.svg);
+  background-size: cover;
+  z-index: -10;
+}
+
+.accordian {
+  width: 100%;
+  max-width: 60rem;
+  background: var(--white);
+  border-radius: 2rem;
+  margin-inline: 2.5rem;
+  padding: 3.5rem;
+  box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.1);
+}
+
+.accordian__heading-content {
+  display: flex;
+}
+
+.accordian__heading {
+  font-size: 6rem;
+  margin-left: 2.5rem;
+  font-weight: 600;
+}
+
+.accordian__question-container {
+  margin-block: 2rem;
+}
+
+.accordian__item {
+  margin: 4rem 0 2rem;
+  position: relative;
+}
+
+.accordian__item:not(:last-child)::after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  background-color: var(--light-pink);
+  position: absolute;
+  bottom: -1rem;
+  left: 0;
+}
+
+.accordian__question-content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.accordian__question {
+  font-weight: 600;
+  color: var(--dark-purple);
+  transition: color 0.2s;
+}
+
+.accordian__question:hover {
+  color: var(--light-purple);
+}
+
+.accordian__answer-content {
+  margin-top: 2rem;
+  max-height: 0;
+  overflow-y: hidden;
+  transition: all 0.5s;
+}
+
+.accordian__item.expand .accordian__answer-content {
+  max-height: 13rem;
+}
+
+.accordian__answer {
+  color: var(--grayish-purple);
+  padding-bottom: 2rem;
+
+}
+
+@media screen and (max-width: 56em) {
+  .background {
+    height: 35vh;
+    background-image: url(assets/images/background-pattern-mobile.svg);
+  }
+
+  .accordian {
+    padding: 2rem;
+  }
+}
+
+.attribution {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
